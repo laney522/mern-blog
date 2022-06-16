@@ -4,9 +4,6 @@ export default function Topbar() {
   return (
     <div className="top">
       Topbar
-      <>
-        <p>test</p>
-      </>
     </div>
 
   )
