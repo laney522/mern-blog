@@ -4,10 +4,10 @@ export default function Topbar() {
   return (
     <div className="top">
       <div className="topLeft">
-        <i class="fa-brands fa-facebook-square"></i>
-        <i class="fa-brands fa-twitter-square"></i>
-        <i class="fa-brands fa-pinterest-square"></i>
-        <i class="fa-brands fa-instagram-square"></i>
+        <i className="topIcon fab fa-brands fa-facebook-square"></i>
+        <i className="topIcon fab fa-brands fa-twitter-square"></i>
+        <i className="topIcon fab fa-brands fa-pinterest-square"></i>
+        <i className="topIcon fab fa-brands fa-instagram-square"></i>
       </div>
       <div className="topCenter">
         <ul className="topList">
@@ -18,7 +18,10 @@ export default function Topbar() {
           <li className="topListItem">LOGOUT</li>
         </ul>
       </div>
-      <div className="topRight">r</div>
+      <div className="topRight">
+
+        <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
+      </div>
     </div>
 
   )
