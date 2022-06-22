@@ -19,7 +19,11 @@ export default function Topbar() {
         </ul>
       </div>
       <div className="topRight">
-
+        <img
+          src="https://images.pexels.com/photos/50692/brothers-family-siblings-boys-50692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt=""
+          className="topImg"
+        />
         <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
       </div>
     </div>
