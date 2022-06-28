@@ -4,6 +4,7 @@ export default function Post() {
   return (
     <div className='post'>
       <img
+        className="postImg"
         src="https://images.pexels.com/photos/10757870/pexels-photo-10757870.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
         alt=""
       />
