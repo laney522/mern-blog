@@ -19,4 +19,13 @@
   color: lightcoral;
 }
 
-.settingsDeleteTitle {}
+.settingsDeleteTitle {
+  color: red;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+}
