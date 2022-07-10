@@ -1,17 +1,17 @@
-import "./login.css"
+import "./register.css"
 
 export default function Login() {
   return (
-    <div className='login'>
-      <span className="loginTitle">Login</span>
-      <form className="loginForm">
+    <div className='register'>
+      <span className="registerTitle">Login</span>
+      <form className="registerForm">
         <label>Email</label>
-        <input type="text" className='loginInput' placeholder='Enter your email...' />
+        <input type="text" className='registerInput' placeholder='Enter your email...' />
         <label>Password</label>
-        <input type="password" className='loginInput' placeholder='Enter your password...' />
-        <button className="loginButton">Login</button>
+        <input type="password" className='registerInput' placeholder='Enter your password...' />
+        <button className="registerButton">Login</button>
       </form>
-      <button className="loginRegisterButton">Register</button>
+      <button className="registerRegisterButton">Register</button>
     </div>
   );
 }
