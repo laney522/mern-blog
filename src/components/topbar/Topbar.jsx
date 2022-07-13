@@ -31,10 +31,10 @@ export default function Topbar() {
           ) : (
             <ul className='topList'>
               <li className='topListItem'>
-                <Link className='link' to="/login" >LOGIN</Link>
+                <Link className='link' to="/login"  >LOGIN</Link>
               </li>
               <li className='topListItem'>
-                <Link className='link' to="/register" >REGISTER</Link>
+                <Link className='link' to="/register"  >REGISTER</Link>
               </li>
             </ul>
           )
