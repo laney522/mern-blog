@@ -1,6 +1,6 @@
 import "./post.css";
 
-export default function Post() {
+export default function Post({ post }) {
   return (
     <div className='post'>
       <img
@@ -14,7 +14,7 @@ export default function Post() {
           <span className="postCat">Life</span>
         </div>
         <span className="postTitle">
-          Neque porro quisquam est qui dolorem ipsum
+          {post.title}
         </span>
         <hr />
         <span className="postDate">1 hour ago</span>
