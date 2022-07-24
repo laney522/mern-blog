@@ -17,4 +17,4 @@ app.use("/api/auth", authRoute);
 
 app.listen("5000", () => {
   console.log("Backend is running.");
-});
+});   
