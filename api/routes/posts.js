@@ -13,27 +13,17 @@ router.post("/", async (req, res) => {
   }
 });
 
-//CREATE POST
+//UPDATE POST
 router.put("/:id", async (req, res) => {
-  if (req.body.userId === req.params.id) {
-    if (req.body.password) {
-      const salt = await bcrypt.genSalt(10);
-      req.body.password = await bcrypt.hash(req.body.password, salt);
-    }
+  try {
+    const post = await Post.findById(req.params.id);
     try {
-      const updatedUser = await User.findByIdAndUpdate(
-        req.params.id,
-        {
-          $set: req.body,
-        },
-        { new: true }
-      );
-      res.status(200).json(updatedUser);
+      if (post.username === req.body.username)
     } catch (err) {
-      res.status(500).json(err);
+
     }
-  } else {
-    res.status(401).json("You can udpate only your account!");
+  } catch (err) {
+    res.status(500).json(err)
   }
 });
 
