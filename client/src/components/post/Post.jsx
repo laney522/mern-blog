@@ -1,5 +1,5 @@
 import "./post.css";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 
 export default function Post({ post }) {
   return (
@@ -18,7 +18,9 @@ export default function Post({ post }) {
         <hr />
         <span className="postDate">{new Date(post.createdAt).toDateString}</span>
       </div>
-      <p className="postDesc">{post.desc}</p>
+      <p className="postDesc">
+        {post.desc}
+      </p>
     </div>
   )
 }
