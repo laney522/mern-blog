@@ -79,13 +79,14 @@ router.get("/", async (req, res) => {
       posts = await Post.find({
         categories: {
           $in: [catName]
-        }})
-    } else{
+        }
+      })
+    } else {
       posts = await Post.find();
     }
     res.status(200).json(posts);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.response.data)
   }
 });
 
