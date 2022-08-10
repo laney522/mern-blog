@@ -11,7 +11,7 @@ export default function SinglePost() {
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("/posts/" + path);
-      setPost(res.data)
+      setPost(res.data);
     };
     getPost()
   }, [path])
@@ -19,7 +19,7 @@ export default function SinglePost() {
     <div className='singlePost'>
       <div className="singlePostWrapper">
         <img
-          src="https://images.pexels.com/photos/12576276/pexels-photo-12576276.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          // src="https://images.pexels.com/photos/12576276/pexels-photo-12576276.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
           alt=""
           className="singlePostImg" />
         <h1 className="singlePostTitle">
