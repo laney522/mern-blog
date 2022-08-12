@@ -37,14 +37,11 @@ export default function SinglePost() {
           <span className='singlePostAuthor'>
             Autor: <b>{post.username}</b>
           </span>
-          <span className='singlePostDate'>1 hour ago</span>
+          <span className='singlePostDate'>
+            {new Date(post.createdAt).toDateString()}
+          </span>
         </div>
-        <p className='singlePostDesc'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci id sint dolores perspiciatis eaque nostrum doloribus molestiae voluptatibus delectus earum, exercitationem laboriosam debitis iure, quo nam enim? Necessitatibus, ullam architecto
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci id sint dolores perspiciatis eaque nostrum doloribus molestiae voluptatibus delectus earum, exercitationem laboriosam debitis iure, quo nam enim? Necessitatibus, ullam architecto
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci id sint dolores perspiciatis eaque nostrum doloribus molestiae voluptatibus delectus earum, exercitationem laboriosam debitis iure, quo nam enim? Necessitatibus, ullam architecto
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci id sint dolores perspiciatis eaque nostrum doloribus molestiae voluptatibus delectus earum, exercitationem laboriosam debitis iure, quo nam enim? Necessitatibus, ullam architecto
-        </p>
+        <p className='singlePostDesc'>{post.desc}</p>
       </div>
     </div>
   )

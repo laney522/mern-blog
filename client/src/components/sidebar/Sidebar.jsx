@@ -1,6 +1,12 @@
-import "./sidebar.css"
+import { useEffect, useState } from 'react';
+import "./sidebar.css";
 
 export default function Sidebar() {
+  const [cat, setCats] = useState([]);
+
+  useEffect(() => {
+
+  }, [])
   return (
     <div className='sidebar'>
       <div className="sidebarItem">
