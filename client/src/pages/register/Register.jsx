@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./register.css"
@@ -7,8 +8,13 @@ export default function Register() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const res = axios("/auth", {
+      username,
+      email,
+      password,
+    });
   };
   return (
     <div className='register'>
