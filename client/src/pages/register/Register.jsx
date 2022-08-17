@@ -10,11 +10,15 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = axios("/auth", {
-      username,
-      email,
-      password,
-    });
+    try{
+      const res = await axios.post("/auth/register", {
+        username,
+        email,
+        password,
+      });
+    } catch(err){
+      console.log(err);
+    }
   };
   return (
     <div className='register'>
