@@ -4,20 +4,24 @@ import { Link } from 'react-router-dom';
 import "./register.css"
 
 export default function Register() {
-  const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
+    setError(false);
+    try {
       const res = await axios.post("/auth/register", {
         username,
         email,
         password,
       });
-    } catch(err){
+      res.data && window.location.replace("/login");
+    } catch (err) {
       console.log(err);
+      setError(true);
     }
   };
   return (
@@ -50,6 +54,7 @@ export default function Register() {
       <button className="registerLoginButton">
         <Link to='/login' style={{ textDecoration: 'none', color: 'white' }}>Login</Link>
       </button>
+      {error && <span style={{ color: "red" }}>Something went wrong!</span>}
     </div>
   );
 }
