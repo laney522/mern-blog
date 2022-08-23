@@ -25,7 +25,7 @@ export default function Login() {
     }
   };
 
-  // console.log(user);
+  console.log(isFetching);
   return (
     <div className='login'>
       <span className="loginTitle">Login</span>
