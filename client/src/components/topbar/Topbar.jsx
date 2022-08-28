@@ -7,7 +7,7 @@ export default function Topbar() {
   const { user, dispatch } = useContext(Context);
 
   const handleLogout = () => {
-    dispatch({type: "LOGOUT"})
+    dispatch({ type: "LOGOUT" })
   }
   return (
     <div className="top">
@@ -30,7 +30,7 @@ export default function Topbar() {
         {
           user ? (
             <img
-              src="https://images.pexels.com/photos/50692/brothers-family-siblings-boys-50692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src={user.profilePic}
               alt=""
               className="topImg"
             />
