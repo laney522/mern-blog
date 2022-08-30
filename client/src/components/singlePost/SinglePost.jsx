@@ -6,7 +6,8 @@ import "./singlePost.css"
 export default function SinglePost() {
   const location = useLocation()
   const path = location.pathname.split("/")[2];
-  const [post, setPost] = useState({})
+  const [post, setPost] = useState({});
+  const PF = "http://localhost:5000/images/";
 
   useEffect(() => {
     const getPost = async () => {
@@ -19,12 +20,8 @@ export default function SinglePost() {
     <div className='singlePost'>
       <div className="singlePostWrapper">
         {post.photo && (
-          <img
-            src={post.photo}
-            // src="https://images.pexels.com/photos/12576276/pexels-photo-12576276.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-            alt=""
-            className="singlePostImg"
-          />
+          <img src={PF + post.photo} alt="" className="singlePostImg" />
+          // src="https://images.pexels.com/photos/12576276/pexels-photo-12576276.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
         )}
         <h1 className="singlePostTitle">
           {post.title}
@@ -35,7 +32,7 @@ export default function SinglePost() {
         </h1>
         <div className="singlePostInfo">
           <span className='singlePostAuthor'>
-            Autor: 
+            Autor:
             <Link to={`/?user=${post.username}`} className="link">
               <b>{post.username}</b>
             </Link>
