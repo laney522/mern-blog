@@ -18,6 +18,15 @@ export default function SinglePost() {
     };
     getPost()
   }, [path])
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete("posts/" + path, { username: user.username });
+      window.location.replace("/");
+    } catch (err) {
+
+    }
+  }
   return (
     <div className='singlePost'>
       <div className="singlePostWrapper">
