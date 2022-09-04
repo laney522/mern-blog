@@ -39,9 +39,9 @@ export default function SinglePost() {
           // src="https://images.pexels.com/photos/12576276/pexels-photo-12576276.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
         )}
         {updateMode ? (
-          <input type="text" value={post.title} />
+          <input type="text" value={post.title}  alt="" className="singlePostTitleInput/>
         ) : ( 
-            <h1 className="singlePostTitle">
+          <h1 className="singlePostTitle">
             {post.title}
             {post.username === user?.username &&
               <div className="singlePostEdit">
@@ -68,6 +68,11 @@ export default function SinglePost() {
             {new Date(post.createdAt).toDateString()}
           </span>
         </div>
+        {updateMode ? (
+          <textarea /> 
+        ) : (
+          <p className='singlePostDesc'>{post.desc}</p>
+        )}
         <p className='singlePostDesc'>{post.desc}</p>
       </div>
     </div>
