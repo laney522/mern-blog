@@ -38,13 +38,12 @@ export default function SinglePost() {
           <img src={PF + post.photo} alt="" className="singlePostImg" />
           // src="https://images.pexels.com/photos/12576276/pexels-photo-12576276.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
         )}
-        {updateMode ? (
-          <input type="text" value={post.title}  alt="" className="singlePostTitleInput/>
-        ) : ( 
-          <h1 className="singlePostTitle">
+        { updateMode ? ( <input type="text" value={post.title}  alt="" className="singlePostTitleInput"/> 
+        ):( 
+          <h1 className='singlePostTitle' >
             {post.title}
-            {post.username === user?.username &&
-              <div className="singlePostEdit">
+            {post.username === user?.username && (
+              <div className='singlePostEdit'>
                 <i
                   className="singlePostIcon far fa-edit"
                   onClick={() => setUpdateMode(true)}
@@ -54,7 +53,7 @@ export default function SinglePost() {
                   onClick={handleDelete}
                   ></i>
               </div>
-            }
+            )}
           </h1>
         )}
         <div className="singlePostInfo">
@@ -69,11 +68,10 @@ export default function SinglePost() {
           </span>
         </div>
         {updateMode ? (
-          <textarea /> 
+          <textarea className='singlePostDescInput'/> 
         ) : (
           <p className='singlePostDesc'>{post.desc}</p>
         )}
-        <p className='singlePostDesc'>{post.desc}</p>
       </div>
     </div>
   )
