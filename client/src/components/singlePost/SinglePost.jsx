@@ -75,7 +75,7 @@ export default function SinglePost() {
           </span>
         </div>
         {updateMode ? (
-          <textarea className='singlePostDescInput' />
+          <textarea className='singlePostDescInput' value={post.desc} />
         ) : (
           <p className='singlePostDesc'>{post.desc}</p>
         )}
