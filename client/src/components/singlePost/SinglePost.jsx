@@ -18,6 +18,8 @@ export default function SinglePost() {
     const getPost = async () => {
       const res = await axios.get("/posts/" + path);
       setPost(res.data);
+      setTitle(res.data.title);
+      setDesc(res.data.desc);
     };
     getPost()
   }, [path])
@@ -41,7 +43,7 @@ export default function SinglePost() {
         {updateMode ? (
           <input
             type="text"
-            value={post.title}
+            value={title}
             alt=""
             className="singlePostTitleInput"
             autoFocus
@@ -75,7 +77,7 @@ export default function SinglePost() {
           </span>
         </div>
         {updateMode ? (
-          <textarea className='singlePostDescInput' value={post.desc} />
+          <textarea className='singlePostDescInput' value={desc} onChange={() => setDesc} />
         ) : (
           <p className='singlePostDesc'>{post.desc}</p>
         )}
