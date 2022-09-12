@@ -5,11 +5,14 @@ import './settings.css';
 
 export default function Settings() {
   const [file, setFile] = useState(null);
+  const [username, setUsername] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const updateUser = {
-      username: user.username,
+      userId: user._id,
       title,
       desc
     };
