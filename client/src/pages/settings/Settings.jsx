@@ -1,42 +1,38 @@
-import { useContext, useRef, useState } from 'react';
-import Sidebar from '../../components/sidebar/Sidebar';
-import { Context } from '../../context/Context';
 import './settings.css';
+import Sidebar from '../../components/sidebar/Sidebar';
+import { useContext, useState } from 'react';
+import { Context } from '../../context/Context';
+import axios from "axios";
 
 export default function Settings() {
   const [file, setFile] = useState(null);
-  const [username, setUsername] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { user } = useContext(Context);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updateUser = {
+    const updatedUser = {
       userId: user._id,
-      title,
-      desc
+      username,
+      email,
+      password,
     };
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
-      newPost.photo = filename;
+      updatedUser.profilePic = filename;
       try {
         await axios.post("/upload", data);
-      } catch (err) {
-
-      }
+      } catch (err) {}
     }
     try {
-      const res = await axios.post("/posts", newPost);
-      window.location.replace("/post/" + res.data._id);
-    } catch (err) {
-
-    }
+      await axios.put("/users"+user._id, updatedUser);
+    } catch (err) {}
   };
-
-  const { user } = useContext(Context);
   return (
     <div className='settings'>
       <div className="settingsWrapper">
