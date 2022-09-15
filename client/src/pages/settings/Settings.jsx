@@ -10,7 +10,7 @@ export default function Settings() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { user } = useContext(Context);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const updatedUser = {
@@ -27,11 +27,11 @@ export default function Settings() {
       updatedUser.profilePic = filename;
       try {
         await axios.post("/upload", data);
-      } catch (err) {}
+      } catch (err) { }
     }
     try {
-      await axios.put("/users"+user._id, updatedUser);
-    } catch (err) {}
+      await axios.put("/users" + user._id, updatedUser);
+    } catch (err) { }
   };
   return (
     <div className='settings'>
@@ -50,12 +50,17 @@ export default function Settings() {
             <label htmlFor="fileInput">
               <i className="settingsPPIcon fa-solid fa-circle-user"></i>
             </label>
-            <input type="file" id="fileInput" style={{ display: "none" }} />
+            <input
+              type="file"
+              id="fileInput"
+              style={{ display: "none" }}
+              onChange={(e) => setFile(e.target.files[0])}
+            />
           </div>
           <label>Username</label>
-          <input type="text" placeholder='laney' />
+          <input type="text" placeholder={user.username} />
           <label>Email</label>
-          <input type="email" placeholder='laney@gmail.com' />
+          <input type="email" placeholder={user.email} />
           <label>Password</label>
           <input type="password" />
           <button className="settingsSubmit">Update</button>
