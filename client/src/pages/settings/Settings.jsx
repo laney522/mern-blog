@@ -52,8 +52,8 @@ export default function Settings() {
             </label>
             <input
               type="file"
-              id="fileInput"
-              style={{ display: "none" }}
+              id="fileInput"  
+              style={{ display: "none"  }}
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
@@ -62,7 +62,7 @@ export default function Settings() {
           <label>Email</label>
           <input type="email" placeholder={user.email} />
           <label>Password</label>
-          <input type="password" />
+          <input type="password"  />
           <button className="settingsSubmit">Update</button>
         </form>
       </div>
