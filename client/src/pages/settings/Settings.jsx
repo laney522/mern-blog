@@ -58,12 +58,12 @@ export default function Settings() {
             />
           </div>
           <label>Username</label>
-          <input type="text" placeholder={user.username} />
+          <input type="text" placeholder={user.username} onChange={e=>setUsername(e.target.value)} />
           <label>Email</label>
-          <input type="email" placeholder={user.email} />
+          <input type="email" placeholder={user.email} onChange={e=>setEmail(e.target.value)}/>
           <label>Password</label>
-          <input type="password"  />
-          <button className="settingsSubmit">Update</button>
+          <input type="password"  onChange={e=>setPassword(e.target.value)}/>
+          <button className="settingsSubmit" type="submit">Update</button>
         </form>
       </div>
       <Sidebar />
