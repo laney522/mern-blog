@@ -30,7 +30,7 @@ export default function Settings() {
       } catch (err) { }
     }
     try {
-      await axios.put("/users" + user._id, updatedUser);
+      await axios.put("/users/" + user._id, updatedUser);
     } catch (err) { }
   };
   return (
@@ -40,7 +40,7 @@ export default function Settings() {
           <span className="settingsUpdateTitle">Update Your Account</span>
           <span className="settingsDeleteTitle">Delete Account</span>
         </div>
-        <form className="settingsForm">
+        <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Profile Picture</label>
           <div className="settingsPP">
             <img
@@ -52,17 +52,17 @@ export default function Settings() {
             </label>
             <input
               type="file"
-              id="fileInput"  
-              style={{ display: "none"  }}
+              id="fileInput"
+              style={{ display: "none" }}
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
           <label>Username</label>
-          <input type="text" placeholder={user.username} onChange={e=>setUsername(e.target.value)} />
+          <input type="text" placeholder={user.username} onChange={e => setUsername(e.target.value)} />
           <label>Email</label>
-          <input type="email" placeholder={user.email} onChange={e=>setEmail(e.target.value)}/>
+          <input type="email" placeholder={user.email} onChange={e => setEmail(e.target.value)} />
           <label>Password</label>
-          <input type="password"  onChange={e=>setPassword(e.target.value)}/>
+          <input type="password" onChange={e => setPassword(e.target.value)} />
           <button className="settingsSubmit" type="submit">Update</button>
         </form>
       </div>

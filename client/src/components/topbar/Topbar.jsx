@@ -23,7 +23,7 @@ export default function Topbar() {
           <li className="topListItem"><Link className='link' to="/" >HOME</Link></li>
           <li className="topListItem"><Link className='link' to="/" >ABOUT</Link></li>
           <li className="topListItem"><Link className='link' to="/" >CONTACT</Link></li>
-          <li className="topListItem"><Link className='link' to="/" >WRITE</Link></li>
+          <li className="topListItem"><Link className='link' to="/write" >WRITE</Link></li>
           <li className="topListItem" onClick={handleLogout}>{user && "LOGOUT"}</li>
         </ul>
       </div>
@@ -49,5 +49,5 @@ export default function Topbar() {
         <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
       </div >
     </div >
-  );
+  );  
 }
