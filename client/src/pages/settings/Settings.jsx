@@ -9,6 +9,7 @@ export default function Settings() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false);
   const { user } = useContext(Context);
 
   const handleSubmit = async (e) => {
@@ -31,6 +32,7 @@ export default function Settings() {
     }
     try {
       await axios.put("/users/" + user._id, updatedUser);
+      setSuccess(true);
     } catch (err) { }
   };
   return (
@@ -64,6 +66,9 @@ export default function Settings() {
           <label>Password</label>
           <input type="password" onChange={e => setPassword(e.target.value)} />
           <button className="settingsSubmit" type="submit">Update</button>
+          {success && (
+            <span style={{ color: "green" }}>Profile has been updated...</span>
+          )}
         </form>
       </div>
       <Sidebar />
