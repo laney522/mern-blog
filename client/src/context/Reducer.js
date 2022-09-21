@@ -5,7 +5,7 @@ const Reducer = (state, action) => {
         user: null,
         isFetching: true,
         error: false,
-      }
+      };
     case "LOGIN SUCCESS":
       return {
         user: action.payload,
@@ -15,7 +15,7 @@ const Reducer = (state, action) => {
     case "LOGIN FAILURE":
       return {
         user: null,
-        isFetching: true,
+        isFetching: false,
         error: true,
       };
     case "LOGOUT":
