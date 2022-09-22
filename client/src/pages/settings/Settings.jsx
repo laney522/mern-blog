@@ -10,10 +10,11 @@ export default function Settings() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
-  const { user } = useContext(Context);
+  const { user, dispatch } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch({ type: "UPDATE_START" })
     const updatedUser = {
       userId: user._id,
       username,
@@ -31,9 +32,12 @@ export default function Settings() {
       } catch (err) { }
     }
     try {
-      await axios.put("/users/" + user._id, updatedUser);
+      const res = await axios.put("/users/" + user._id, updatedUser);
       setSuccess(true);
-    } catch (err) { }
+      dispatch({ type: "UPDATE_SUCCESS", payload: res.data })
+    } catch (err) {
+      dispatch({ type: "UPDATE_FAILURE" })
+    }
   };
   return (
     <div className='settings'>
@@ -46,7 +50,7 @@ export default function Settings() {
           <label>Profile Picture</label>
           <div className="settingsPP">
             <img
-              src={user.profilePic}
+              src={file ? URL.createObjectURL(file) : user.profilePic}
               alt=""
             />
             <label htmlFor="fileInput">
@@ -67,7 +71,7 @@ export default function Settings() {
           <input type="password" onChange={e => setPassword(e.target.value)} />
           <button className="settingsSubmit" type="submit">Update</button>
           {success && (
-            <span style={{ color: "green" }}>Profile has been updated...</span>
+            <span style={{ color: "green", textAlign: "center", marginTop: "20px" }}>Profile has been updated...</span>
           )}
         </form>
       </div>
