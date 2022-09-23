@@ -37,9 +37,9 @@ export default function Settings() {
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data })
     } catch (err) {
       dispatch({ type: "UPDATE_FAILURE" })
-    }
+    }  
   };
-  return (
+  return (  
     <div className='settings'>
       <div className="settingsWrapper">
         <div className="settingsTitle">
